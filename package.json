@@ -16,7 +16,6 @@
   "bugs": {
     "url": "https://github.com/ychizzz21/my-blog/issues"
   },
-  "homepage": "https://github.com/ychizzz21/my-blog#readme",
   "dependencies": {
     "koa": "^2.8.2",
     "koa-logger": "^3.2.1",
@@ -24,5 +23,6 @@
     "koa-static": "^5.0.0",
     "koa-views": "^6.2.1",
     "pug": "^2.0.4"
-  }
+  },
+  "homepage": "https://github.com/ychizzz21/my-blog#readme"
 }

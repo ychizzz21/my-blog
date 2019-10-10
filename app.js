@@ -13,7 +13,7 @@ app.use(logger())
 // 将当前所有静态资源的根目录修改成 "" 中的路径
 app.use(static(join(__dirname, "public"))) 
 
-// 配置视图模板，路径为views，使用的模板设成pug
+// 配置视图模板，默认根路径为views，使用的模板设成pug
 app.use(views(join(__dirname, "views"), {
   extension: "pug"
 }))

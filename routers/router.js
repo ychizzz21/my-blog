@@ -8,7 +8,7 @@ router.get("/", async (ctx) => {
     session: {  // role 判断用户的登录状态
       role: 666,
     },
-    title: "my-blog"
+    title: "my-blog123"
   }) // 渲染index.pug
 } )
 

@@ -3,12 +3,16 @@ const router = require('./routers/router')
 const static = require('koa-static')
 const views = require('koa-views')
 const logger = require('koa-logger')
+const body = require('koa-body')
 const { join } = require('path')
 
 const app = new Koa()
 
 // 注册日志模块
 app.use(logger())
+
+// 配置 koa-body 处理 post 请求
+app.use(body())
 
 // 将当前所有静态资源的根目录修改成 "" 中的路径
 app.use(static(join(__dirname, "public"))) 

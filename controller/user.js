@@ -5,6 +5,7 @@ const encrypt = require('../utils/encrypt')
 // 通过db对象创建操作user库的对象
 const UserControl = db.model("users", userSchema)
 
+// 用户注册
 exports.reg = async ctx => {
   // 用户注册，点击提交之后运行下面代码
   const user = ctx.request.body // 用户注册时，post发过来的数据
@@ -56,6 +57,23 @@ exports.reg = async ctx => {
   .catch(async err => {
     await ctx.render("isOk", {
       status: "注册失败，请重试"
+    })
+  })
+}
+
+// 用户登录
+exports.login = async ctx => {
+  // 拿到post数据
+  const user = ctx.request.body
+  const username = user.username
+  const password = user.password
+
+  await new Promise((resolve, reject) => {
+    UserControl.find({username}, (err, data) => {
+      if (err) {
+        return reject(err)
+      }
+      
     })
   })
 }

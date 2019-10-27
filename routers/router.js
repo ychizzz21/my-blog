@@ -29,8 +29,11 @@ router.post("/user/login", async (ctx) => {
 
 })
 
-// post 请求处理用户注册
+// 用户注册 路由
 router.post("/user/reg", user.reg)
+
+// 用户登录 路由
+router.post("/user/login", user.login)
 
 // 导出
 module.exports = router

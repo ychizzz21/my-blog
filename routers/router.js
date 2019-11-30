@@ -21,14 +21,6 @@ router.get(/^\/user\/(?=reg|login)/, async (ctx) => {
   await ctx.render("register", {show})
 })
 
-// post 请求处理用户登录
-router.post("/user/login", async (ctx) => {
-  // post 数据需要解析，因此要依赖 koa-body 模块
-  const data = ctx.request.body
-  // 取出用户名，到数据库中查询，匹配到则表示登录成功
-
-})
-
 // 用户注册 路由
 router.post("/user/reg", user.reg)
 

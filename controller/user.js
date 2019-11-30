@@ -71,9 +71,38 @@ exports.login = async ctx => {
   await new Promise((resolve, reject) => {
     UserControl.find({username}, (err, data) => {
       if (err) {
+        // 返回错误信息
         return reject(err)
       }
-      
+      if (data.length === 0) {
+        // data指的是用户的登录信息
+        return reject("用户名不存在")
+      }
+      // 用户登录成功，对比密码
+      if (data[0].password === encrypt(password)) {
+        // 密码一致
+        return resolve(data)
+      }
+      // 密码不一致
+      resolve('')
+    })
+  })
+  .then(async data => {
+    if (!data) {
+      // 如果resolve传了空值
+      return ctx.render("isOk", {
+        status: "密码不正确，登录失败"
+      })
+    }else{
+      // resolve没传空值
+      return ctx.render("isOk", {
+        status: "登录成功"
+      })
+    }
+  })
+  .catch(async err => {
+    await ctx.render("isOk", {
+      status: "登录失败"
     })
   })
 }
